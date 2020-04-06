@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import GlobalStyle from './styles/GlobalStyle';
+import MovieList from './App';
 import * as serviceWorker from './serviceWorker';
+import Movie from './components/Movie'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+    <GlobalStyle />
+    <Switch>
+          <Route path="/movie"><Movie /></Route>
+          <Route path="/"><MovieList /></Route>
+        </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
